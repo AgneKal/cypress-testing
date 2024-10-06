@@ -2,10 +2,9 @@
 
 describe('Verify All Products and product detail page', () => {
     it('should load product detail page', () => {
-        // 1. Launch browser
-        cy.visit('/');
-        // 2. Navigate to url 'http://automationexercise.com'
-        // 3. Verify that home page is visible successfully
+        // 1-3. Launch browser, navigate to url 'http://automationexercise.com', verify that home page is visible successfully:
+        cy.launchBrowserNavigateHome();
+
         // 4. Click on 'Products' button
         // 5. Verify user is navigated to ALL PRODUCTS page successfully
         // 6. The products list is visible

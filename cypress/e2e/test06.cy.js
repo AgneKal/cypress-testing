@@ -2,10 +2,9 @@
 
 describe('Add Products in Cart', () => {
     it('should add product in cart with right prices, quantity and total price', () => {
-        // 1. Launch browser
-        cy.visit('/');
-        // 2. Navigate to url 'http://automationexercise.com'
-        // 3. Verify that home page is visible successfully
+        // 1-3. Launch browser, navigate to url 'http://automationexercise.com', verify that home page is visible successfully:
+        cy.launchBrowserNavigateHome();
+
         // 4. Click 'Products' button
         // 5. Hover over first product and click 'Add to cart'
         // 6. Click 'Continue Shopping' button
