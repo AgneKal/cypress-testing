@@ -1,7 +1,5 @@
 /// <reference types = "cypress" />
 
-
-// All tests 1-3 steps
 Cypress.Commands.add('launchBrowserNavigateHome', () => {
     cy.visit('/');
     cy.get('#slider-carousel > .carousel-inner').should('be.visible');
@@ -44,13 +42,13 @@ Cypress.Commands.add('loginOrRegisterAndLoginUser', (username, email, password) 
     cy.get('.signup-form input[data-qa="signup-name"]').type(username);
     cy.get('.signup-form input[data-qa="signup-email"]').type(email);
     cy.get('.signup-form button[data-qa="signup-button"]').click();
-    // Login or Register
+    // Login or Register and login
     cy.get('form > p').then((el) => {
         if (el.text().includes('Email Address already exist!')) {
             // Email already exists, proceed with login
             cy.loginUser(email, password);
         } else {
-            // Register the user
+            // Register the user and login
             cy.registerUser(username, email, password);
             cy.get('.nav').contains('Logout').click();
             cy.get('.nav').contains('Signup / Login').click();
@@ -58,13 +56,6 @@ Cypress.Commands.add('loginOrRegisterAndLoginUser', (username, email, password) 
         }
     });
 });
-
-// Cypress.Commands.add('loginAndDeleteUser', (username, email, password) => {
-//     cy.loginUser(username, email, password);
-//     cy.get('.nav').contains('Delete Account').click();
-//     cy.get('h2[data-qa="account-deleted"]').should('be.visible').and('have.text', 'Account Deleted!');
-//     cy.get('[data-qa="continue-button"]').contains('Continue').click();
-// })
 
 Cypress.Commands.add('deleteUser', () => {
     cy.get('.nav').contains('Delete Account').click();
