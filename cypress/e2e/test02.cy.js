@@ -14,8 +14,7 @@ describe('Logout User', () => {
         cy.fixture('user').then((fakeUser) => {
             const { username, email, password } = fakeUser.user;
 
-            // 6. Enter correct email address and password
-            // 7. Click 'login' button
+            // 6-7. Enter correct email address and password, click 'login' button
             cy.loginOrRegisterAndLoginUser(username, email, password);
 
             // 8. Verify that 'Logged in as username' is visible
